@@ -250,7 +250,12 @@ public class AccountAction extends BaseAction {
         return !changePasswordForm.getNewPassword().equals(changePasswordForm.getConfirmationPassword());
     }
 
+    private boolean newDMPasswordDoesNotMatchConfirmationPassword() {
+        return !changePasswordForm.getNewPassword().equals(changePasswordForm.getConfirmationPassword());
+    }
+
     private boolean incorrectCurrentPassword(User user) {
+        newDMPasswordDoesNotMatchConfirmationPassword()
         return !changePasswordForm.getCurrentPassword().equals(user.getPassword());
     }
 
